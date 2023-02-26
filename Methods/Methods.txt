@@ -1,0 +1,75 @@
+METHODS
+
+    A method in golang is nothing but a function with a receiver. A receiver is an instance of some specific type such as struct,
+    but it can be an instance of any other custom type. So basically when you attach a function to a type, then that function becomes a method for that type.
+    The method will have access to the properties of the receiver and can call the receiver’s other methods.
+
+Functions Vs Methods
+
+   -> A function can be used as first-order objects and can be passed around while methods cannot.
+   -> Methods can be used for chaining on the receiver while function cannot be used for the same.
+   -> There can exist different methods with the same name with a different receiver, but there cannot exist two different
+    functions with the same name in the same package.
+
+
+Value Receiver
+
+    Since the method is defined on a value receiver when the method is called a copy of the receiver is made and that copy
+    of the receiver is available inside the method. Since it is a copy, any changes made to the value receiver is not visible to the caller.
+
+Method on a Pointer Receiver
+
+     Any change made to a value receiver is not visible to the caller. Methods can also be defined on a pointer receiver.
+     Any change made to the pointer receiver will be visible to the caller.
+
+To summarize what we learnt above
+
+    ->  If a method has a value receiver it supports calling of that method with both value and pointer receiver
+    ->  If a method has a pointer receiver then also it supports calling of that method with both value and pointer receiver
+
+    This is unlike function where if
+
+    ->  If a function has a pointer argument then it will only accept a pointer as an argument
+    ->  If a function has a value argument then it will only accept a value as an argument
+
+When to use pointer receiver
+
+    ->  When the changes to the receiver made inside the method have to be visible to the caller.
+    ->  When the struct is big, then it is better to use a pointer receiver otherwise a copy of the struct will be made
+        every time a method is called which will be expensive
+
+Method Chaining
+
+    -> For method chaining to be possible the methods in the chain should return the receiver.
+    -> Returning the receiver for the last method inn the chain is optional.
+
+    Example :
+
+    type employee struct {
+    	name   string
+    	age    int
+    	salary int
+    }
+
+    func (e employee) printName() employee {
+    	fmt.Printf("Name: %s\n", e.name)
+    	return e
+    }
+
+    func (e employee) printAge() employee {
+    	fmt.Printf("Age: %d\n", e.age)
+    	return e
+    }
+
+    func (e employee) printSalary() {
+    	fmt.Printf("Salary: %d\n", e.salary)
+    }
+
+    func main() {
+    	emp := employee{name: "Sam", age: 31, salary: 2000}
+    	emp.printName().printAge().printSalary()
+    }
+
+Methods On Non Struct Type :
+
+       To define a method on a type, the definition of the receiver type and definition of the method should be present in same package,else you get an error

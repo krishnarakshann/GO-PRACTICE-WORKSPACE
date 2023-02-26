@@ -1,0 +1,72 @@
+Switch statement are a perfect way to prevent a if-else ladder. Here is the format for switch statement
+
+switch statement; expression {
+    case expression1:
+            //Dosomething
+    case expression2:
+            //Dosomething
+    default:
+            //Dosomething
+}
+
+Give a switch expression, it goes through all cases and tries to find the first case expression that matches the switch
+expression otherwise the default case is executed if present. The order of matching is from top to bottom and then left
+to right
+
+Both switch statement and switch expression are optional statement. So four possible scenario exist for them
+
+Scneario One :
+
+    Both switch statement and switch expression are present
+
+    switch statement; expression {
+       ...
+    }
+
+Scenario Two :
+
+    Only switch statement is present. Notice the syntax below. Semicolon needs to be present after switch statement
+
+    switch statement; {
+        ...
+    }
+
+Scenario Three :
+
+    Both switch statement and switch expression are absent.
+
+    switch {
+      ...
+    }
+
+Scenario Four :
+
+    Both switch statement and switch expression are absent.
+
+    switch {
+      ...
+    }
+
+    If the switch expression is not provided then the default type assumed by the compiler is boolean true.
+    The type of switch expression and all of case expressions should match otherwise there will be a compiler error
+    raised.
+
+    --> When switch expression is not provided the type of all case expressions needs to be a boolean too.
+
+    switch statement can be any statement with a short declaration, function call or assignment.
+    If switch statement has a variable declaration then the scope of that variable is limited to the switch block
+
+
+    default case is optional
+
+    case can have multiple expression separated by comma. Then case will look like as below
+    case expression1_1, expression_2 ...:
+
+    Two cases cannot have the same constant value
+
+Fallthrough Keyword :
+
+    When the case immediately following the matched case needs to be executed then we use fallthrough it executes the below case  irrespective of the condition
+    We must not use fallthrough for the case in the switch case since there are no cases to execute after the lastcase
+
+        -> fallthrough needs to be final statement within the switch block. If it is not then compiler raise error

@@ -1,0 +1,39 @@
+
+Project
+    - api
+        - open api.json( swagger file )
+    - models
+        - models.go
+    - internal
+        -http/handler
+            -http/handler.go
+            -http/handler_test.go
+        -services
+            -Entity
+                -services.go
+                -services_test.go
+            -Interfaces.go
+            -mock_Interfaces.go
+        -Store
+            -Entity
+                - store.go
+                - store_test.go
+            -Interfaces.go
+            -mock_interfaces.go
+    -main.go
+    - go.mod
+        - go.sum
+
+
+Model
+    Student
+        Id
+        name
+        age
+        cgpa
+        Hobbies slice
+
+
+
+
+

@@ -1,0 +1,44 @@
+When it comes to loop, golang has:
+
+->  for loop
+->  for-range loop
+
+     The while loop is missing from go but a while loop can be implemented using a for loop .
+
+for loop in GO basically has three parts as shown below in the format
+
+    1.init part
+    2.condition part
+    3.post part
+
+// Syntax of a for loop
+
+for initialisation;condition;updation {
+    //Do something
+}
+
+
+Some points to note about for loop:
+
+    ->  The parenthesis is not necessary around for loop but the curly braces around the body is necessary.
+
+    ->  The init and post part is optional.
+
+    ->  The init part can be any statement with a short declaration, function call or assignment.
+        If the init part has the variable declaration, then the scope of that variable is limited to within the for loop.
+
+    ->  The post part can be any statement but generally contains the increment logic.
+        The post part cannot contain initialization. Compiler will raise error in case we add any initialization logic to the post part
+
+Break Statement in For loop
+
+    -> break statement help exit out of the for loop. None of the statement after break is executed inside the for loop.
+
+    Label break := when you want to exit the outer loop
+
+Continue Statement in For loop
+
+    -> continue statement help skip the current iteration of the for loop. None of the statement after the continue is
+       executed and the execution reaches the start again with next iteration. The use case is when you want to only operate
+       on certain elements of the for loop.
+

@@ -1,0 +1,109 @@
+
+STRUCTS
+
+    -> GO struct is named collection of data fields which can be of different types.
+       Struct acts as a container that has different heterogeneous data types which together represents an entity.
+
+      -> A struct in golang can be compared to a class in Object Oriented Languages
+
+      Declaring a struct
+
+      type structname  struct{
+        field1 type
+        field2 type
+      }
+
+      Example  :
+
+      type Point struct {
+        x float64
+        y float64
+      }
+
+Creating a struct variable
+
+    ->  Declaring a struct just declares a named struct type. Creating a struct variable creates an instance of that struct
+        with memory being initialized as well
+
+    Example :
+
+    type Employee struct{
+        name string
+        sal float64
+    }
+
+    e = Employee{}  // initialising an emoty struct
+
+    // different ways of initialisation
+
+    e = Employee{"abc",89034.45} // without specifying the field names , In this case, all values for each of the field has to be provided in sequence  as specified in struct declaration
+    //A compiler error will be raised if all values are not provided when field name is not used.
+
+
+    e = Employee{name: "abc",sal:456.78} // all the fields within the same line
+
+    e := Employee{
+        name : "abcd",
+        sal : 5789.45,
+    }
+
+   e := Employee{
+        name : "abcd",
+   } // sal will be initialised with the default value of its type
+
+  ***** It is to be noted that in the initialization of a struct, every new line with in curly braces has to end with a comma ****
+
+Accessing and Setting Struct Fields
+
+    ->  Structs fields can be accessed using the dot operator. Below is the format for getting the value
+
+    Example : e.name,e.sal
+
+    Similarly a value can be assigned to a struct field too.
+
+    Example ---->   e.name = "abc"
+
+Pointer to a struct
+
+    ->  There are two ways of creating a pointer to the struct
+
+        1.Using the & operator
+        2.Using the new keyword
+
+     1. Using & operator   ----- >   e := &Employee{}
+     2.Using the new keyword -----> e := new(Employee)
+
+********    It is to be noted that both Marshal and MarshalIndent function can only access the exported fields of a struct,
+    which means that only the capitalized fields can be accessed and encoded in JSON form. *****
+
+    Struct Field Meta or Tags
+
+    A struct in go also allows adding metadata to its fields.
+    These meta fields can be used to encode decode into different forms, doing some forms of validations on struct fields, etc.
+    So basically any meta information can be stored with fields of a struct and can be used by any package or library for different purposes.
+
+    Meta-data is a string literal i.e it is enclosed in backquotes
+
+
+STRUCTS EQUALITY
+
+    The first thing to know before considering struct equality is weather if all struct fields types are comparable or not
+
+    Some of the comparable types as defined by go specification are
+
+    boolean
+    numeric
+    string,
+    pointer
+    channel
+    interface types
+    structs – if all it’s field type is comparable
+    array – if the type of value of array element is comparable
+
+    Some of the types which are not comparable as per go specification and which cannot be used as a key in a map are.
+
+    Slice
+    Map
+    Function
+    So two struct will be equal if first all their field types are comparable and all the corresponding field values are equal.
+

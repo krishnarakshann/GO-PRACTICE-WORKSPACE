@@ -1,0 +1,62 @@
+Maps:
+
+Maps are golang builtin datatype similar to the hash table which maps a key to a value.
+Map is an unordered collection where each key is unique while values can be the same for two or more different keys.
+The advantages of using a map are that it provides fast retrieval, search, insert, and delete operations.
+
+Maps are referenced data types. When you assign one map to another both refer to the same underlying map
+
+The map key can be any type that is comparable.
+
+->Some of the comparable types as defined by go specification are
+
+boolean
+numeric
+string,
+pointer
+channel
+interface types
+structs – if all it’s field type is comparable
+array – if the type of value of array element is comparable
+Some of the types which are not comparable as per go specification and which cannot be used as a key in a map are.
+
+Slice
+Map
+Function
+
+The below operations are applicable for map
+
+    ->  Add a key-value pair
+    ->  Update a key
+    ->  Get the value corresponding to a key
+    ->  Delete a key-value pair
+    ->  Check if a key exists
+
+Functions on Maps
+
+Below is the builtin function which can be used on a map
+
+len() function
+len() function
+
+The len() function can be used to get the length of the map which is number of key value pair present in the map.
+
+Maps are referenced data types
+
+Map are reference data types. So on assigning one map to a new variable, then both variable refers to the same map.
+Any change in one of the map would reflect in other and vice versa.
+
+
+Iterating over a map
+
+for-range loop with a map
+
+    for key,value := range map {
+        -------
+    }
+
+
+*************   maps are unsafe for concurrent use  **********
+
+
+Maps cant be compared using the "==" operator

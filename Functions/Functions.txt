@@ -1,0 +1,38 @@
+Functions
+
+    A function is a group of statements that perform a specific task.
+    In GO functions are first-order variables. They can be passed around like any other variable.
+
+    Some point worth noting about a function name
+
+    * A function name cannot begin with a number
+    * The function name is case sensitive. Hence sum, Sum,  SUM are different functions.
+    * A function whose name starts with a capital letter will be exported outside its package and can be called from other packages.
+    * A function whose name starts with lowercase letters will not be exported and it’s only visible within its package
+
+    A function in golang
+
+      ->  Declared using func keyword
+      ->  It has a name
+      ->  Comma-separated zero or more input parameters
+      ->  Comma-separated zero or more return values
+      ->  Function body
+      ->  Can return multiple values
+
+
+What is a variadic function?
+
+    Functions in general accept only a fixed number of arguments. A variadic function is a function that accepts a variable number of arguments.
+    If the last parameter of a function definition is prefixed by ellipsis ..., then the function can accept any number of arguments for that parameter.
+
+    Only the last parameter of a function can be variadic.
+
+Anonymous Functions
+
+    A function in Go is a first-order variable so it can be used as a value as well.
+    It is also called as anonymous functions because a function is not named and can be assigned to a variable and passed around.
+    They are generally created for short term use or for limited functionality.
+
+Higher Order Functions
+
+    A Function which takes a function as an arguement and returns a function

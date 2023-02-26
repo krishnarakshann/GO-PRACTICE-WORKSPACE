@@ -1,0 +1,114 @@
+ Two types of Datatypes are present Basic and Composite
+
+ In Composite again it is of two categories -> 1. Reference and non-reference/Collection type
+
+	-> Reference Type
+	        ->Maps
+	          Channel
+	          Slice
+	          Pointers
+	          Functions/Method
+
+	 -> Non reference or Collection Types
+	        -> Arrays
+	        -> Structs
+
+
+Basic datatypes
+1.Integer
+->Signed Integers
+    -> int (basing on underlying system compatibility like 32 bit machine or 64 bit machine  architecture)
+    -> int8  (int of 8 bits or 1 byte)
+    -> int16 (int of 16 bites or 2 bytes)
+    -> int32
+    -> int64
+->Unsigned Integers (Takes only positive or zero as values)
+    -> uint
+    -> uint8
+    -> uint16
+    -> uint32
+    -> uint64
+    -> uintptr
+
+    uintptr :
+
+  ->   This is an unsigned integer type that is large enough to hold any pointer address.
+    Therefore is size and range are platform dependent.
+
+    -> Type uintptr in Golang is an integer type that is large enough to contain the bit pattern of any pointer.
+    In other words, uintptr is an integer representation of a memory address.
+
+    Properties:
+
+    A uintptr can be converted to unsafe.Pointer and vice versa
+    Arithmetic can be performed on the uintptr
+    uintptr even though it holds a pointer address, is just a value, and does not reference any object. Therefore
+    Its value will not be updated if the corresponding object moves. For Eg When goroutine stack changes
+    The corresponding object can be garbage collected.
+
+    When to Use:
+    Its purpose is to be used along with unsafe.Pointer mainly used for unsafe memory access.
+    When you want to save the pointer address value for printing it or storing it.
+    Since the address is just stored and does not reference anything, the corresponding object can be garbage collected.
+
+
+
+
+2. Float
+->Float32
+-> Float64
+
+    float64 is the default float type.
+    When you initialize a variable with a decimal value and don’t specify the float type, the default type inferred will be float64.
+
+
+
+3.Complex
+    -> complex64 (Both the real and imaginary part are of float32)
+    -> complex128  (Both the real and imaginary part are of float64)
+
+    Complex Numbers can be initialized in two ways
+
+    Using complex function.
+     -> It has below signature. Do make sure that both a and b should be of same type ,
+    meaning either they both should be float32 or both should be float64
+
+    complex(a, b)
+    n := complex(2,3)
+
+    Using the shorthand syntax.
+    -> This is used when creating a complex number with direct numbers.
+    The complex type created using below method will be of type complex128 if type is not specified
+    a := 5 + 6i
+
+4.Byte
+
+byte in Go is an alias for uint8 meaning it is an integer value.
+This integer value is of 8 bits and it represents one byte i.e number between 0-255).
+A single byte therefore can represent ASCII characters. Golang does not have any data type of ‘char’. Therefore
+
+byte is used to represent the ASCII character
+rune is used to represent all UNICODE characters which include every character that exists.
+
+-> Define Byte
+
+var rbyte byte := 'a'
+
+While declaring byte we have specify the type, as above.
+If we don’t specify the type, then the default type is meant as a rune.
+
+
+5. Rune
+
+6. String
+
+string is a read only slice of bytes in golang. String can be initialized in two ways
+
+using double quotes “” eg “this”
+string in double quotes honors the escape sequences.
+For eg if the string contains a \n then while printing there will be a new line
+
+using back quotes ` eg  \`this`
+String in back quotes is just a raw string and it does not honor any kind of escape sequences.
+
+7. Boolean //default value is false

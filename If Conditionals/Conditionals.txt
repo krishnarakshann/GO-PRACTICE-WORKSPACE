@@ -1,0 +1,43 @@
+Go supports below formats for the if-else statement
+
+Only if  (Simple If)
+If Else
+If Else Ladder
+Nested if-else
+If with a short statement
+
+What is a condition :
+
+-> A statement or a combination of statements that result in a boolean are allowed for a condition in if.
+
+false boolean is treated as false in a condition in go and true boolean is treated as true in a condition
+
+
+If with short statement :
+
+->  If statement also supports a statement before the condition. This statement will be executed before the condition.
+    There can also be new initialized variable in the statement. Below is the format for that.
+
+if statement; condition {
+   //Do something
+}
+
+The initialization if present in the statement will be a short declaration.
+Notice that var keyword is not supported in the statement
+
+if var a =20; a>10{
+    fmt.Printf("A is greater than 10 ")
+}
+
+// You get an error since var is not supported in the statment
+
+only boolean values or statement that result in boolean value are allowed in the if condition. The below code throws an error
+
+		if 1 {
+			fmt.Println("if block executed")
+		}
+
+
+Ternary Operator
+
+    ->  There is no ternary operator in Go, hence you need to use if else statements in place of that.

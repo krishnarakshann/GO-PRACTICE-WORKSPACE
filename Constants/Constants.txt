@@ -1,0 +1,74 @@
+Constants :
+
+  -> A constant is anything that doesn’t change its value. In Go const can be either of type string, numeric,
+   boolean, and characters.
+
+  -> A constant can be declared using the const keyword. A important point to be noted is that the value
+     has to be assigned while declaring a constant. It is unlike variables where value can be assigned later.
+
+     -> Constant Variable Cannot be reassigned after its declaration
+
+     -> const value must be known at compile time. Hence a const value cannot be assigned to a
+        function call which is evaluated at run time.
+
+     -> A constant declared within an inner having a same name as constant declared in the outer scope will shadow the constant in outer scope.
+
+    In go constant are treated in a different way than any other language. GO has a very strong type system that doesn’t allow implicit conversion between
+any of the types. Even with the same numeric types no operation is allowed without explicit conversion. For eg you cannot add a int32 and int64 value.
+To add those either int32 has  to be explicitly converted to int64 or vice versa. However untyped constant have the flexibility of temporary escape from the GO’s type system
+
+
+Typed Constant
+
+    -> A const declared specifying the type in the declaration is a typed constant.
+
+    //Example
+        -> const a int32 = 34
+
+    -> This const a can only be assigned to a variable of type int32.
+    -> If you assign it to a variable of any other type it will raise an error .
+
+
+UnTyped Constant
+
+    An untyped constant is a constant whose type has not been specified. A untyped constant in GO can be either named or unnamed.
+
+    //Examples of unnamed untyped constant
+
+    123        //Default hidden type is int
+    "circle"   //Default hidden type is string
+    5.6.       //Default hidden type is float64
+    true       //Default hidden type is bool
+    'a'        //Default hidden type is rune
+    3+5i       //Default hidden type is complex128
+
+    // Examples of Named Untyped Constant
+
+    const a = 123        //Default hidden type is int
+    const b = "circle"   //Default hidden type is string
+    const c = 5.6       //Default hidden type is float64
+    const d = true       //Default hidden type is bool
+    const e = 'a'        //Default hidden type is rune
+    const f = 3+5i      //Default hidden type is complex128
+
+
+    Default Hidden type for Constants
+    Integers	int
+    Floats	float64
+    Complex Numbers	complex128
+    Strings	string
+    Booleans	bool
+    Characters	int32 or rune
+
+**
+The default type of a named or unnamed constant type will become type of a variable they are assigned to .
+For example in below code variable a will get its  type from  the default type of unnamed constant 123 which is int.
+
+var a = 123 // type inference
+
+The use of untyped constant is that the type of the constant will be decided depending upon the type of variable they are being assigned to.
+
+-> Pi constant value in math package is declared as below.
+
+   const Pi = 3.14159265358979323846264338327950288419716939937510582097494459
+

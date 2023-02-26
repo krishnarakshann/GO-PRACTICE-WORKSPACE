@@ -1,0 +1,37 @@
+For range Loops
+
+    -> for-range loop is used to iterate over different collection data structures in golang such as
+
+       array or slice
+       string
+       maps
+       channel
+
+    Syntax :
+
+    for index,value := range collection datastructure{
+    ......
+    }
+
+    Both index and value are optional in for-range when using with array/slice.
+
+for-range loop with a channel
+
+    ->     for-range loop works differently too for a channel. For a channel, an index doesn't make any sense as the channel is similar to a
+           pipeline where values enter from one and exit from the other end.So in case of channel, the for-range loop will iterate over values
+           currently present in the channel. After it has iterated over all the values currently present (if any), the for-range loop will not exit
+           but instead wait for next value that might be pushed to the channel and it will exit only when the channel is closed
+
+           Below is the format when using for-range with channel
+
+           for value := range channel {
+               //Do something value
+           }
+
+
+for-range loop with a map
+
+    for key,value := range map {
+        -------
+    }
+
